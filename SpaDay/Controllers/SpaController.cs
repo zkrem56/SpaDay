@@ -10,6 +10,50 @@ namespace SpaDay.Controllers
 {
     public class SpaController : Controller
     {
+        public bool CheckSkinType(string skinType, string facialType)
+        {
+            if (skinType == "oily")
+            {
+                if (facialType == "Microdermabrasion" || facialType == "Rejuvenating")
+                {
+                    return true;
+                } else
+                {
+                    return false;
+                }
+            }
+            else if (skinType == "combination")
+            {
+                if (facialType == "Microdermabrasion" || facialType == "Rejuvenating" || facialType == "Enzyme Peel")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else if (skinType == "normal")
+            {
+                return true;
+            }
+            else if (skinType == "dry")
+            {
+                if (facialType == "Microdermabrasion" || facialType == "Hydrofacial")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         // GET: /<controller>/
         public IActionResult Index()
         {
@@ -30,11 +74,30 @@ namespace SpaDay.Controllers
                         "</select><br>" +
                         "<input type = 'submit' value = 'Submit'>" +
                         "</form>";
-          
+
             return Content(html, "text/html");
         }
 
-        
+        [HttpPost]
+        [Route("/spa")]
+        public IActionResult Menu(string name, string skintype, string manipedi)
+        {
+            List<string> facials = new List<string>()
+            {
+                "Microdermabrasion", "Hydrofacial", "Rejuvenating", "Enzyme Peel"
+            };
+
+            List<string> appropriateFacials = new List<string>();
+            for (int i = 0; i < facials.Count; i++)
+            {
+                if (CheckSkinType(skintype, facials[i]))
+                {
+                    appropriateFacials.Add(facials[i]);
+                }
+            }
+            return View();
+        }
+
 
     }
 }
