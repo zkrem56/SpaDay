@@ -12,46 +12,25 @@ namespace SpaDay.Controllers
     {
         public bool CheckSkinType(string skinType, string facialType)
         {
-            if (skinType == "oily")
+
+            if (facialType != "Microdermabrasion")
             {
-                if (facialType == "Microdermabrasion" || facialType == "Rejuvenating")
+                if (skinType == "oily" && facialType != "Rejuvenating")
                 {
-                    return true;
-                } else
+                    return false;
+                }
+                else if (skinType == "combination" && facialType != "Rejuvenating" || facialType != "Enzyme Peel")
+                {
+                    return false;
+                }
+                else if (skinType == "dry" && facialType != "Hydrofacial")
                 {
                     return false;
                 }
             }
-            else if (skinType == "combination")
-            {
-                if (facialType == "Microdermabrasion" || facialType == "Rejuvenating" || facialType == "Enzyme Peel")
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else if (skinType == "normal")
-            {
-                return true;
-            }
-            else if (skinType == "dry")
-            {
-                if (facialType == "Microdermabrasion" || facialType == "Hydrofacial")
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return true;
-            }
+
+            return true;
+
         }
 
         public IActionResult Index()
