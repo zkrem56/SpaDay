@@ -19,7 +19,7 @@ namespace SpaDay.Controllers
                 {
                     return false;
                 }
-                else if (skinType == "combination" && facialType != "Rejuvenating" || facialType != "Enzyme Peel")
+                else if (skinType == "combination" && (facialType != "Rejuvenating" || facialType != "Enzyme Peel"))
                 {
                     return false;
                 }
