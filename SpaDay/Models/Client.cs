@@ -6,8 +6,6 @@ namespace SpaDay.Models
 {
     public class Client
     {
-        [FromForm(Name="name")]
-        public string Name { get; set; }
         [FromForm(Name="skintype")]
         public string SkinType { get; set; }
         [FromForm(Name="manipedi")]
@@ -19,9 +17,8 @@ namespace SpaDay.Models
 
         }
 
-        public Client(string name, string skinType, string nailService)
+        public Client(string skinType, string nailService)
         {
-            Name = name;
             SkinType = skinType;
             NailService = nailService;
             SetFacials(SkinType);
