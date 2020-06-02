@@ -18,8 +18,10 @@ namespace SpaDay.Controllers
 
         [HttpPost]
         [Route("/spa")]
-        public IActionResult Menu(Client newClient)
+        public IActionResult Menu(string skintype, string manipedi)
         {
+            Client newClient = new Client(skintype, manipedi);
+            newClient.SetFacials(newClient.SkinType);
             ViewBag.client = newClient;
             return View();
         }
