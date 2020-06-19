@@ -8,5 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Views\Spa\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
 </Project>
