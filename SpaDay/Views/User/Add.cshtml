@@ -1,0 +1,47 @@
+﻿<h1>Add User</h1>
+
+
+
+<form method="post" action="/user">
+    <div class="form-group">
+        <label>
+            <span>Name: </span>
+            <input type="text" name="name" value="@ViewBag.name"/>
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label>
+            <span>Username: </span>
+            <input type="text" name="username" value="@ViewBag.username"/>
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label>
+            <span>Email: </span>
+            <input type="email" name="email" value="@ViewBag.email"/>
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label>
+            <span>Password:</span>
+            <input type="password" name="password" />
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label>
+            <span>Type Password Again:</span>
+            <input type="password" name="verify" />
+        </label>
+    </div>
+
+    @if(ViewBag.error != null)
+    {
+        <p>@ViewBag.error</p>
+    }
+
+    <input style="color: red" type="submit" value="Create New User" />
+</form>

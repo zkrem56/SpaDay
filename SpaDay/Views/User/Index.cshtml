@@ -1,0 +1,28 @@
+﻿<h1>Welcome @ViewBag.user.Username</h1>
+<p>
+    <a asp-controller="Spa" asp-action="Index">Return to Home</a>
+</p>
+
+<div>
+    <h1>Account Information</h1>
+    <div class="form-group">
+        <label>
+            <span>Name: </span>
+            <p>@ViewBag.user.Name</p>
+        </label>
+    </div>
+
+    <div>
+        <label>
+            <span>Email: </span>
+            <P>@ViewBag.user.Email</P>
+        </label>
+    </div>
+
+    <div>
+        <label>
+            <span>Date Joined: </span>
+            <p>@ViewBag.user.Date</p>
+        </label>
+    </div>
+</div>
